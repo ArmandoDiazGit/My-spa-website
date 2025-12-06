@@ -1,0 +1,113 @@
+:root {
+  /* Spa Color Palette - Soft Greens & Earthy Tones */
+  --color-sage: #8b9d83;
+  --color-sage-light: #a8baa0;
+  --color-sage-dark: #6b7d63;
+  --color-terracotta: #c8a882;
+  --color-cream: #f7f5f2;
+  --color-sand: #e8e4dc;
+  --color-charcoal: #2c2c2c;
+  --color-warm-gray: #736c64;
+  --color-off-white: #fafaf8;
+  --color-accent-green: #9caf88;
+
+  /* Typography */
+  --font-heading: "Cormorant Garamond", serif;
+  --font-body: "Lato", sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-charcoal);
+  background-color: var(--color-off-white);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+.App {
+  min-height: 100vh;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-sage);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-sage-dark);
+}
+
+/* Transitions for interactive elements */
+button,
+a,
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover,
+a:hover {
+  transform: translateY(-2px);
+}
+
+/* Section Spacing */
+.section {
+  padding: 5rem 0;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+}

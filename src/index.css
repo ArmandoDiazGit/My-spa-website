@@ -1,0 +1,74 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+@layer base {
+  :root {
+    --background: 43 20% 97%;
+    --foreground: 0 0% 17%;
+    --card: 43 20% 97%;
+    --card-foreground: 0 0% 17%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 17%;
+    --primary: 100 15% 56%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 30 35% 65%;
+    --secondary-foreground: 0 0% 17%;
+    --muted: 43 15% 90%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 100 20% 70%;
+    --accent-foreground: 0 0% 17%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 100 15% 85%;
+    --input: 100 15% 85%;
+    --ring: 100 15% 56%;
+    --chart-1: 100 15% 56%;
+    --chart-2: 30 35% 65%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 0 0% 17%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 17%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 17%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 100 15% 56%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 30 35% 45%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 25%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 100 20% 50%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 25%;
+    --input: 0 0% 25%;
+    --ring: 100 15% 56%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
