@@ -1,6 +1,8 @@
 import { Phone } from "lucide-react";
-import { spaInfo } from "../mockData";
+import { spaInfo } from "../spaData";
 import { useNavigate } from "react-router-dom";
+import facebook from "../libs/img/facebook.svg";
+import instagram from "../libs/img/instagram.svg";
 
 function Footer() {
   const navigate = useNavigate();
@@ -73,20 +75,35 @@ function Footer() {
               Follow us on social media for updates and wellness tips!
             </p>
             <div className="flex gap-4">
-              <div className="w-10 h-10 rounded-full bg-[#8B9D83] flex items-center justify-center cursor-pointer hover:bg-[#A8BAA0] transition-colors">
-                F
-              </div>
-              <div className="w-10 h-10 rounded-full bg-[#8B9D83] flex items-center justify-center cursor-pointer hover:bg-[#A8BAA0] transition-colors">
-                I
-              </div>
+              <button
+                onClick={() =>
+                  window.open("https://www.facebook.com", "_blank")
+                }
+              >
+                <img
+                  src={facebook}
+                  alt="Facebook"
+                  className="w-10 h-10 rounded-full flex items-center justify-center cursor-pointer"
+                />
+              </button>
+
+              <button
+                onClick={() =>
+                  window.open("https://www.instagram.com", "_blank")
+                }
+              >
+                <img
+                  src={instagram}
+                  alt="Instagram"
+                  className="w-10 h-10 rounded-full flex items-center justify-center cursor-pointer"
+                />
+              </button>
             </div>
           </div>
         </div>
 
         <div className="border-t border-gray-700 pt-8 text-center">
-          <p className="mb-2">
-            Test, Test • Professional Massage Therapy
-          </p>
+          <p className="mb-2">Test, Test • Professional Massage Therapy</p>
           <p className="text-sm text-gray-400">
             &copy; 2025 Test. All rights reserved.
           </p>

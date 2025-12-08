@@ -1,22 +1,13 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import {
-  Phone,
-  MapPin,
-  Clock,
-  Star,
-  Menu,
-  X,
-  Calendar as CalendarIcon,
-  Send,
-} from "lucide-react";
+import { Phone, Menu, X, Calendar as CalendarIcon } from "lucide-react";
 
 function Navigator() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
 
   return (
-    <nav className="container mx-auto px-4 py-4">
+    <nav className="container mx-auto px-4 py-3">
       <div className="flex justify-between items-center">
         <div
           className="text-2xl font-bold"
@@ -29,22 +20,22 @@ function Navigator() {
         </div>
 
         <ul className="hidden md:flex items-center space-x-6">
-          <li className="hover:text-[#8B9D83] transition-colors">
+          <li className="hover:text-[#2c2c2c] transition-colors hover:bg-[#8b9d83] hover:px-1 hover:rounded-md">
             <NavLink to="/">home</NavLink>
           </li>
-          <li className="hover:text-[#8B9D83] transition-colors">
+          <li className="hover:text-[#2c2c2c] transition-colors hover:bg-[#8b9d83] hover:px-1 hover:rounded-md">
             <NavLink to="/about">about</NavLink>
           </li>
-          <li className="hover:text-[#8B9D83] transition-colors">
+          <li className="hover:text-[#2c2c2c] transition-colors hover:bg-[#8b9d83] hover:px-1 hover:rounded-md">
             <NavLink to="/services">services</NavLink>
           </li>
-          <li className="hover:text-[#8B9D83] transition-colors">
+          <li className="hover:text-[#2c2c2c] transition-colors hover:bg-[#8b9d83] hover:px-1 hover:rounded-md">
             <NavLink to="/reviews">reviews</NavLink>
           </li>
-          <li className="hover:text-[#8B9D83] transition-colors">
+          <li className="hover:text-[#2c2c2c] transition-colors hover:bg-[#8b9d83] hover:px-1 hover:rounded-md">
             <NavLink to="/location">location</NavLink>
           </li>
-          <li className="hover:text-[#8B9D83] transition-colors">
+          <li className="hover:text-[#2c2c2c] transition-colors hover:bg-[#8b9d83] hover:px-1 hover:rounded-md">
             <NavLink to="/contact">contact</NavLink>
           </li>
         </ul>
@@ -59,22 +50,58 @@ function Navigator() {
 
       {mobileMenuOpen && (
         <div className="md:hidden mt-4 pb-4 space-y-3">
-          <button className="block w-full text-left py-2 hover:text-[#8B9D83] transition-colors" onClick={() => { navigate("/"); setMobileMenuOpen(false); }}>
+          <button
+            className="block w-full text-left py-2 hover:text-[#2c2c2c] transition-colors hover:bg-[#8b9d83] hover:px-1 hover:rounded-md"
+            onClick={() => {
+              navigate("/");
+              setMobileMenuOpen(false);
+            }}
+          >
             Home
           </button>
-          <button className="block w-full text-left py-2 hover:text-[#8B9D83] transition-colors" onClick={() => { navigate("/about"); setMobileMenuOpen(false); }} >
+          <button
+            className="block w-full text-left py-2 hover:text-[#2c2c2c] transition-colors hover:bg-[#8b9d83] hover:px-1 hover:rounded-md"
+            onClick={() => {
+              navigate("/about");
+              setMobileMenuOpen(false);
+            }}
+          >
             About
           </button>
-          <button className="block w-full text-left py-2 hover:text-[#8B9D83] transition-colors" onClick={() => { navigate("/services"); setMobileMenuOpen(false); }} >
+          <button
+            className="block w-full text-left py-2 hover:text-[#2c2c2c] transition-colors hover:bg-[#8b9d83] hover:px-1 hover:rounded-md"
+            onClick={() => {
+              navigate("/services");
+              setMobileMenuOpen(false);
+            }}
+          >
             Services
           </button>
-          <button className="block w-full text-left py-2 hover:text-[#8B9D83] transition-colors" onClick={() => { navigate("/reviews  "); setMobileMenuOpen(false); }}>
+          <button
+            className="block w-full text-left py-2 hover:text-[#2c2c2c] transition-colors hover:bg-[#8b9d83] hover:px-1 hover:rounded-md"
+            onClick={() => {
+              navigate("/reviews  ");
+              setMobileMenuOpen(false);
+            }}
+          >
             Reviews
           </button>
-          <button className="block w-full text-left py-2 hover:text-[#8B9D83] transition-colors" onClick={() => { navigate("/location"); setMobileMenuOpen(false); }}>
+          <button
+            className="block w-full text-left py-2 hover:text-[#2c2c2c] transition-colors hover:bg-[#8b9d83] hover:px-1 hover:rounded-md"
+            onClick={() => {
+              navigate("/location");
+              setMobileMenuOpen(false);
+            }}
+          >
             Location
           </button>
-          <button className="block w-full text-left py-2 hover:text-[#8B9D83] transition-colors" onClick={() => { navigate("/contact"); setMobileMenuOpen(false); }}>
+          <button
+            className="block w-full text-left py-2 hover:text-[#2c2c2c] transition-colors hover:bg-[#8b9d83] hover:px-1 hover:rounded-md"
+            onClick={() => {
+              navigate("/contact");
+              setMobileMenuOpen(false);
+            }}
+          >
             Contact
           </button>
           <a

@@ -1,5 +1,5 @@
 import About from "./About";
-import Home from "./home";
+import Home from "./Home";
 import Services from "./Services";
 import Reviews from "./Reviews";
 import Location from "./Location";

@@ -1,4 +1,4 @@
-import { images } from "../mockData.js";
+import { images } from "../spaData";
 import Navigator from "./navigator";
 
 function About() {

@@ -1,20 +1,20 @@
-import { images, spaInfo } from "../mockData.js";
-import {
-  Phone,
-  MapPin,
-  Clock,
-  Star,
-  Menu,
-  X,
-  Calendar as CalendarIcon,
-  Send,
-} from "lucide-react";
+import { images, spaInfo } from "../spaData.js";
+import { Phone, Star, Calendar as CalendarIcon } from "lucide-react";
 import Button from "./Button.jsx";
 import Navigator from "./navigator";
 import { useState } from "react";
+import AppointmentDialog from "./AppointmentDialog";
 
 function Home() {
-  const [bookingOpen, setBookingOpen] = useState(false);
+  const [openDialog, setOpenDialog] = useState(false);
+
+  function openDialogHandler() {
+    setOpenDialog(true);
+  }
+
+  function handleDialogClose(value) {
+    setOpenDialog(value);
+  }
 
   return (
     <>
@@ -29,7 +29,7 @@ function Home() {
             alt="Spa massage therapy"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
+          <div className="absolute inset-0 bg-linear-to-r from-black/70 via-black/50 to-transparent"></div>
         </div>
 
         <div className="container mx-auto px-4 z-10 relative">
@@ -62,14 +62,14 @@ function Home() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button type={"schedule"} onClick={() => console.log("test")}>
+              <Button variant={"primary"} onClick={openDialogHandler}>
                 <CalendarIcon className="mr-2" size={20} />
                 Book an Appointment
               </Button>
 
               <Button
                 className="border-2 border-white text-white hover:bg-white hover:text-[#2C2C2C] text-lg"
-                type={"call"}
+                variant={"call"}
                 onClick={() => console.log("test")}
               >
                 <a href={`tel:${spaInfo.phone}`}>
@@ -88,6 +88,13 @@ function Home() {
           </div>
         </div>
       </section>
+      {openDialog && (
+        <AppointmentDialog
+          open={openDialog}
+          onClose={handleDialogClose}
+          className="fixed left-[50%] top-[50%] z-50 grid translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg"
+        />
+      )}
     </>
   );
 }

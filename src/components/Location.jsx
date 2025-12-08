@@ -1,6 +1,6 @@
 import Navigator from "./navigator";
 import { MapPin, Clock } from "lucide-react";
-import { spaInfo } from "../mockData";
+import { spaInfo } from "../spaData";
 import Footer from "./Footer";
 
 function Location() {

@@ -1,4 +1,4 @@
-import { spaInfo, testimonials } from "../mockData.js";
+import { spaInfo, testimonials } from "../spaData";
 import Navigator from "./navigator";
 import Card from "./Card";
 import CardContent from "./CardContent";
