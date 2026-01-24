@@ -7,33 +7,25 @@ The app is designed to work alongside a separate Admin Panel where bookings can 
 
 ## 🚀 Tech Stack
 
-Frontend
-
-React
-
-Vite
-
-JavaScript
-
-HTML
-
-CSS
-
-Backend (In Progress)
-
-FastAPI (planned)
-
-REST API
+* Frontend
+    * React
+    * Vite
+    * JavaScript
+    * HTML
+    * CSS
+    * Backend (In Progress)
+    * FastAPI (planned)
+    * REST API
 
 ## ✨ Current Features
 
-Booking form for spa & massage services
+* Booking form for spa & massage services
 
-Client-side form validation
+* Client-side form validation
 
-Clean and responsive UI
+* Clean and responsive UI
 
-Structured booking payload ready for backend integration
+* Structured booking payload ready for backend integration
 
 ## 🔗 Related Projects
 
@@ -44,35 +36,33 @@ Used to view and manage bookings submitted from this app
 
 ## ⚙️ Setup & Installation
 
-Clone the repository
+* Clone the repository
 
-git clone https://github.com/your-username/massage-spa-booking.git
+* git clone https://github.com/your-username/massage-spa-booking.git
 
+* Install dependencies
 
-Install dependencies
+* npm install
 
-npm install
+* Run the app
 
+* npm run dev
 
-Run the app
-
-npm run dev
-
-
-Open in browser
-Navigate to http://localhost:5173
+* Open in browser
+  
+* Navigate to http://localhost:5173
 
 ## 🎯 Project Goal
 
 This project was built to:
 
-Create a real-world booking flow for a service-based business
+  * Create a real-world booking flow for a service-based business
 
-Practice React + Vite setup and performance
+  * Practice React + Vite setup and performance
 
-Prepare frontend logic for backend integration
+  * Prepare frontend logic for backend integration
 
-Connect a customer-facing app with an admin dashboard
+  * Connect a customer-facing app with an admin dashboard
 
 ## 🚧 Status
 
@@ -81,13 +71,13 @@ The FastAPI backend will handle booking persistence, validation, and admin acces
 
 ## 🛠️ Planned Improvements
 
-Connect booking form to FastAPI backend
+* Connect booking form to FastAPI backend
 
-Persist bookings in a database
+* Persist bookings in a database
 
-Add confirmation messages and error handling
+* Add confirmation messages and error handling
 
-Improve UI and accessibility
+* Improve UI and accessibility
 
 ## 🤝 Contributions
 
