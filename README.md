@@ -1,16 +1,94 @@
-# React + Vite
+## 💆‍♀️ Massage Spa Website (Booking App)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is the booking portion of a Massage Spa website built with React + Vite.
+It allows customers to submit booking requests through a clean and responsive interface.
 
-Currently, two official plugins are available:
+The app is designed to work alongside a separate Admin Panel where bookings can be viewed and managed.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tech Stack
 
-## React Compiler
+Frontend
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+React
 
-## Expanding the ESLint configuration
+Vite
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+JavaScript
+
+HTML
+
+CSS
+
+Backend (In Progress)
+
+FastAPI (planned)
+
+REST API
+
+## ✨ Current Features
+
+Booking form for spa & massage services
+
+Client-side form validation
+
+Clean and responsive UI
+
+Structured booking payload ready for backend integration
+
+## 🔗 Related Projects
+
+Admin Panel (Angular)
+Used to view and manage bookings submitted from this app
+👉 Link to admin panel repo:
+[https://github.com/your-username/admin-panel-angular](https://github.com/ArmandoDiazGit/angular-admin-panel)
+
+## ⚙️ Setup & Installation
+
+Clone the repository
+
+git clone https://github.com/your-username/massage-spa-booking.git
+
+
+Install dependencies
+
+npm install
+
+
+Run the app
+
+npm run dev
+
+
+Open in browser
+Navigate to http://localhost:5173
+
+## 🎯 Project Goal
+
+This project was built to:
+
+Create a real-world booking flow for a service-based business
+
+Practice React + Vite setup and performance
+
+Prepare frontend logic for backend integration
+
+Connect a customer-facing app with an admin dashboard
+
+## 🚧 Status
+
+🚧 Backend integration is currently in progress
+The FastAPI backend will handle booking persistence, validation, and admin access.
+
+## 🛠️ Planned Improvements
+
+Connect booking form to FastAPI backend
+
+Persist bookings in a database
+
+Add confirmation messages and error handling
+
+Improve UI and accessibility
+
+## 🤝 Contributions
+
+Suggestions and feedback are welcome. Feel free to open an issue or submit a pull request.
