@@ -27,7 +27,7 @@ function About() {
                   className="text-4xl font-bold mb-6"
                   style={{ color: "var(--color-sage-dark)" }}
                 >
-                  About Test
+                  About Us
                 </h2>
                 <p
                   className="text-lg mb-4 leading-relaxed"

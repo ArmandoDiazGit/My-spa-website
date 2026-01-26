@@ -1,17 +1,17 @@
 export const spaInfo = {
-  name: "Spa&Massage by Test",
+  name: "Pacific Serenity Massage & Wellness",
   tagline: "Your Journey to Wellness Begins Here",
   rating: 5.0,
   reviewCount: 63,
-  phone: "111-222-3333",
+  phone: "(111) 111-1111",
   address: {
-    street: "test 1234",
-    city: "Test",
-    state: "TA",
-    zip: "1111",
-    location: "123 Test St, Test, TA 1111",
+    street: "1111 Ocean Ave, Suite #101",
+    city: "Santa Monica",
+    state: "CA",
+    zip: "90401",
+    location: "Santa Monica, California",
   },
-  plusCode: "XV7F+9M Test, Test",
+  plusCode: "XV7F+9M Santa Monica, California",
   hours: {
     monday: "9:00 AM - 8:00 PM",
     tuesday: "9:00 AM - 8:00 PM",
@@ -22,7 +22,7 @@ export const spaInfo = {
     sunday: "Closed",
   },
   about:
-    "Welcome to Spa&Massage by Test, where healing meets tranquility. Led by N/A, an experienced massage therapist dedicated to personalized care, we provide a warm, inclusive sanctuary for everyone seeking relaxation and rejuvenation. rapy tailored to your unique needs, ensuring every visit leaves you refreshed and renewed.",
+    "Pacific Serenity Massage & Wellness is a boutique massage studio inspired by the calm of the California coast. Located just minutes from the beach, we focus on helping clients reset, recover, and relax in a peaceful, ocean-inspired environment.",
 };
 
 export const services = [
@@ -103,28 +103,28 @@ export const testimonials = [
     id: 1,
     name: "Sarah M.",
     rating: 5,
-    text: "Test is absolutely amazing! The deep tissue massage was exactly what I needed. The atmosphere is so calming and welcoming. I felt completely at ease from the moment I walked in.",
+    text: "Pacific Serenity Massage & Wellness is absolutely amazing! The deep tissue massage was exactly what I needed. The atmosphere is so calming and welcoming. I felt completely at ease from the moment I walked in.",
     date: "2 weeks ago",
   },
   {
     id: 2,
     name: "Michael T.",
     rating: 5,
-    text: "Best massage experience I've ever had. Professional, clean, and incredibly relaxing. Test really knows how to work out the tension. I'll definitely be returning regularly!",
+    text: "Best massage experience I've ever had. Professional, clean, and incredibly relaxing. Pacific Serenity Massage & Wellness really knows how to work out the tension. I'll definitely be returning regularly!",
     date: "1 month ago",
   },
   {
     id: 3,
     name: "Jennifer L.",
     rating: 5,
-    text: "Such a wonderful, inclusive environment! The hot stone massage was pure bliss. Test's attention to detail and personalized care made all the difference. Highly recommend!",
+    text: "Such a wonderful, inclusive environment! The hot stone massage was pure bliss. Pacific Serenity Massage & Wellness attention to detail and personalized care made all the difference. Highly recommend!",
     date: "3 weeks ago",
   },
   {
     id: 4,
     name: "David R.",
     rating: 5,
-    text: "I've been to many spas, but this is by far my favorite. The service is exceptional, and the atmosphere is incredibly peaceful. A true gem in Duluth!",
+    text: "I've been to many spas, but this is by far my favorite. The service is exceptional, and the atmosphere is incredibly peaceful. A true gem in Santa Monica!",
     date: "1 week ago",
   },
   {
