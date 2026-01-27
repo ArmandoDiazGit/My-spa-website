@@ -32,7 +32,7 @@ The app is designed to work alongside a separate Admin Panel where bookings can 
 Admin Panel (Angular)
 Used to view and manage bookings submitted from this app
 👉 Link to admin panel repo:
-[https://github.com/your-username/admin-panel-angular](https://github.com/ArmandoDiazGit/angular-admin-panel)
+[admin-panel-angular](https://github.com/ArmandoDiazGit/angular-admin-panel)
 
 ## ⚙️ Setup & Installation
 
