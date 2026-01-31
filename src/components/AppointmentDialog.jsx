@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Calendar from "./Calendar";
 import Button from "./Button";
 import {
@@ -9,10 +9,21 @@ import {
   Phone,
   MessageSquare,
 } from "lucide-react";
-import { Select, SelectTrigger, SelectContent, SelectItem, SelectValue } from "./Select";
-import { services } from '../spaData';
+import {
+  Select,
+  SelectTrigger,
+  SelectContent,
+  SelectItem,
+  SelectValue,
+} from "./Select";
+import { services } from "../spaData";
+import { useCreateBooking } from "../hooks/createBookingHooks";
+import emailjs from "@emailjs/browser";
+import { toast } from "../use-hooks/use-toast";
 
 const AppointmentDialog = ({ open, onClose }) => {
+  const formRef = useRef();
+  const { mutate } = useCreateBooking();
   const [date, setDate] = useState(null);
   const [formData, setFormData] = useState({
     name: "",
@@ -52,22 +63,81 @@ const AppointmentDialog = ({ open, onClose }) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   }
 
+  function toISODate(d) {
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, "0");
+    const day = String(d.getDate()).padStart(2, "0");
+    return `${y}-${m}-${day}`;
+  }
+
+  function buildScheduleAt(dateObj, time12h) {
+    const dateISO = toISODate(dateObj);
+    const timeZ = time12hToHMSMicro(time12h);
+    return `${dateISO}T${timeZ}`;
+  }
+
+  function time12hToHMSMicro(time12h, seconds = 0, milliseconds = 0) {
+    const [time, meridiem] = time12h.trim().split(" ");
+    let [hh, mm] = time.split(":").map(Number);
+
+    if (meridiem === "PM" && hh !== 12) hh += 12;
+    if (meridiem === "AM" && hh === 12) hh = 0;
+
+    const ss = String(seconds).padStart(2, "0");
+    const micro = String(milliseconds * 1000).padStart(6, "0");
+
+    return `${String(hh).padStart(2, "0")}:${String(mm).padStart(
+      2,
+      "0",
+    )}:${ss}.${micro}`;
+  }
+
+  function sendEmail() {
+    emailjs.sendForm("service_mar65gw", "template_l5vf47c", formRef.current, {
+      publicKey: "fkzD0Wowyt32rnLvw",
+    });
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
-    console.log("Booking submitted:", {
-      ...formData,
-      date: date?.toLocaleDateString(),
-    });
 
-    alert(
-      `Thank you for booking! We'll confirm your appointment for ${date?.toLocaleDateString()} at ${
-        formData.time
-      } shortly.`
-    );
-    resetForm();
-    setDate(null);
-    onClose(false);
-  };
+    const schedule_at = buildScheduleAt(date, formData.time);
+    const timeZ = time12hToHMSMicro(formData.time);
+    const formattedDate = date.toISOString().split("T")[0];
+
+    const payload = {
+      name: formData.name.trim(),
+      email: formData.email.trim(),
+      phone: formData.phone.trim(),
+      service: formData.service,
+      notes: formData.notes?.trim() || "",
+      date: formattedDate,
+      time: timeZ,
+      schedule_at,
+      status: "pending",
+    };
+
+    mutate(payload, {
+      onSuccess: () => {
+        resetForm();
+        setDate(null);
+        toast({
+          title: `Thank you ${formData.name} for booking!`,
+          description: `We'll confirm your appointment for ${date?.toLocaleDateString()} at ${
+            formData.time
+          } shortly.`,
+        });
+        sendEmail();
+        closeDialog();
+      },
+      onError: () => {
+        toast({
+          title: `Failed to book appointment`,
+          description: `Please try again later or contact us directly. make sure all fields are filled out correctly.`,
+        });
+      },
+    });
+  }
 
   function isFormValid() {
     return (
@@ -123,7 +193,11 @@ const AppointmentDialog = ({ open, onClose }) => {
         </p>
       </div>
 
-      <form onSubmit={(e) => handleSubmit(e)} className="space-y-6 mt-4">
+      <form
+        ref={formRef}
+        onSubmit={(e) => handleSubmit(e)}
+        className="space-y-6 mt-4"
+      >
         <div className="grid md:grid-cols-2 gap-6">
           <div>
             <h3
@@ -235,18 +309,30 @@ const AppointmentDialog = ({ open, onClose }) => {
               >
                 Service Type *
               </h3>
-              <Select value={formData.service} onValueChange={(value) => setFormData(prev => ({ ...prev, service: value }))}>
-                  <SelectTrigger className={"w-full"} style={{ borderColor: 'var(--color-sage-light)' }}>
-                    <SelectValue placeholder="Choose a service" />
-                  </SelectTrigger>
-                  <SelectContent className={'bg-[#fafaf8]'}>
-                    {services.map((service) => (
-                      <SelectItem key={service.id} value={service.name} className={'hover:bg-[#9caf88]'}>
-                        {service.name} - {service.price}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+              <Select
+                value={formData.service}
+                onValueChange={(value) =>
+                  setFormData((prev) => ({ ...prev, service: value }))
+                }
+              >
+                <SelectTrigger
+                  className={"w-full"}
+                  style={{ borderColor: "var(--color-sage-light)" }}
+                >
+                  <SelectValue placeholder="Choose a service" />
+                </SelectTrigger>
+                <SelectContent className={"bg-[#fafaf8]"}>
+                  {services.map((service) => (
+                    <SelectItem
+                      key={service.id}
+                      value={service.name}
+                      className={"hover:bg-[#9caf88]"}
+                    >
+                      {service.name} - {service.price}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
 
             <div>
@@ -258,18 +344,30 @@ const AppointmentDialog = ({ open, onClose }) => {
                 <Clock size={16} />
                 Preferred Time *
               </h3>
-              <Select value={formData.time} onValueChange={(value) => setFormData(prev => ({ ...prev, time: value }))}>
-                  <SelectTrigger className="w-full" style={{ borderColor: 'var(--color-sage-light)' }}>
-                    <SelectValue placeholder="Select a time slot" />
-                  </SelectTrigger>
-                  <SelectContent className={'bg-[#fafaf8]'}>
-                    {timeSlots.map((time) => (
-                      <SelectItem key={time} value={time} className={'hover:bg-[#9caf88]'}>
-                        {time}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+              <Select
+                value={formData.time}
+                onValueChange={(value) =>
+                  setFormData((prev) => ({ ...prev, time: value }))
+                }
+              >
+                <SelectTrigger
+                  className="w-full"
+                  style={{ borderColor: "var(--color-sage-light)" }}
+                >
+                  <SelectValue placeholder="Select a time slot" />
+                </SelectTrigger>
+                <SelectContent className={"bg-[#fafaf8]"}>
+                  {timeSlots.map((time) => (
+                    <SelectItem
+                      key={time}
+                      value={time}
+                      className={"hover:bg-[#9caf88]"}
+                    >
+                      {time}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
           </div>
         </div>
