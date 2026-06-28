@@ -1,0 +1,134 @@
+.section {
+  padding: 5rem 0;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 0;
+  }
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.inner {
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  text-align: center;
+  color: var(--color-sage-dark);
+  font-family: "Cormorant Garamond", serif;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.infoBlock {
+  margin-bottom: 2rem;
+}
+
+.subheading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-sage-dark);
+  font-family: "Cormorant Garamond", serif;
+}
+
+.addressLine {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+}
+
+.muted {
+  font-size: 0.875rem;
+  color: var(--color-warm-gray);
+}
+
+.plusCode {
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  color: var(--color-warm-gray);
+}
+
+.hoursList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.hoursRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.day {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.hours {
+  color: var(--color-warm-gray);
+}
+
+.mapPlaceholder {
+  background-color: #e8e4dc;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .mapPlaceholder {
+    min-height: 400px;
+  }
+}
+
+.mapContent {
+  text-align: center;
+}
+
+.mapIcon {
+  margin: 0 auto 1rem;
+  color: var(--color-sage);
+}
+
+.mapTitle {
+  font-size: 1.125rem;
+  color: var(--color-charcoal);
+}
+
+.mapSub {
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  color: var(--color-warm-gray);
+}

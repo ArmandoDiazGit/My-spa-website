@@ -1,0 +1,125 @@
+.base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.base svg {
+  pointer-events: none;
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+.primary {
+  background-color: #8b9d83;
+  color: white;
+  font-size: 1.125rem;
+  padding: 1.5rem 2rem;
+  height: 2.5rem;
+  border-radius: 0.375rem;
+}
+.primary:hover {
+  background-color: #6b7d63;
+}
+
+.call {
+  border: 2px solid white;
+  color: white;
+  font-size: 1.125rem;
+  border-radius: 0.375rem;
+  padding: 0 2rem;
+  height: 2.5rem;
+}
+.call:hover {
+  background-color: white;
+  color: #2c2c2c;
+}
+
+.contact {
+  background-color: #c8a882;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+}
+.contact:hover {
+  background-color: #b89872;
+}
+
+.secondary {
+  background-color: #8b9d83;
+  color: white;
+  font-size: 1.125rem;
+  height: 2.5rem;
+  border-radius: 0.375rem;
+  padding: 0 2rem;
+  cursor: pointer;
+}
+.secondary:hover {
+  background-color: #6b7d63;
+}
+
+.outline {
+  border: 1px solid hsl(var(--input));
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  height: 2.5rem;
+  border-radius: 0.375rem;
+  padding: 0 2rem;
+  cursor: pointer;
+}
+.outline:hover {
+  background-color: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+}
+
+.default {
+  width: 100%;
+  background-color: #c8a882;
+  color: white;
+  font-size: 1.125rem;
+  cursor: pointer;
+}
+.default:hover {
+  background-color: #b89872;
+}
+
+.submit {
+  flex: 1;
+  background-color: #8b9d83;
+  color: white;
+  cursor: pointer;
+}
+.submit:hover {
+  background-color: #6b7d63;
+}
+.submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.cancel {
+  flex: 1;
+  border: 2px solid hsl(var(--input));
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  height: 2.5rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+}
+.cancel:hover {
+  background-color: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+}
+
+@media (hover: hover) {
+  .base:hover {
+    transform: translateY(-2px);
+  }
+}

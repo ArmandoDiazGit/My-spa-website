@@ -1,26 +1,27 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./components/Home.jsx";
-import About from "./components/About.jsx";
-import Services from "./components/Services.jsx";
-import Reviews from "./components/Reviews.jsx";
-import Location from "./components/Location.jsx";
-import Contact from "./components/Contact.jsx";
+import Home from "./components/Home/Home.jsx";
+import About from "./components/About/About.jsx";
+import Services from "./components/Services/Services.jsx";
+import Reviews from "./components/Reviews/Reviews.jsx";
+import Location from "./components/Location/Location.jsx";
+import Contact from "./components/Contact/Contact.jsx";
+import Navigator from "./components/Navigator/navigator";
+import Footer from "./components/Footer/Footer";
+import Toaster from "./ui/Toaster";
 
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/reviews" element={<Reviews />} />
-          <Route path="/location" element={<Location />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </BrowserRouter>
+      <Navigator />
+      <Home id="home" />
+      <About id="about" />
+      <Services id="services" />
+      <Reviews id="reviews" />
+      <Location id="location" />
+      <Contact id="contact" />
+      <Footer />
+      <Toaster />
     </div>
   );
 }

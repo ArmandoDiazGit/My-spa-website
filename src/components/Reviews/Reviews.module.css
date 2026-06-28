@@ -1,0 +1,122 @@
+.section {
+  padding: 5rem 0;
+  background-color: var(--color-cream);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 0;
+  }
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--color-sage-dark);
+  font-family: "Cormorant Garamond", serif;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+}
+
+.starsRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.starsInner {
+  display: flex;
+}
+
+.rating {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-charcoal);
+}
+
+.reviewCount {
+  font-size: 1.125rem;
+  color: var(--color-warm-gray);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  border: 1px solid #a8baa0;
+  border-radius: 0.75rem;
+  background-color: var(--color-sand);
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+}
+
+.cardBody {
+  padding: 1rem;
+}
+
+@media (min-width: 640px) {
+  .cardBody {
+    padding: 1.5rem;
+  }
+}
+
+.starsSmall {
+  display: flex;
+  margin-bottom: 0.75rem;
+}
+
+.testimonial {
+  margin-bottom: 1rem;
+  font-style: italic;
+  color: var(--color-charcoal);
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.name {
+  font-weight: 600;
+  color: var(--color-sage-dark);
+}
+
+.date {
+  font-size: 0.875rem;
+  color: var(--color-warm-gray);
+}

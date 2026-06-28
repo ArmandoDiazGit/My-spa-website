@@ -84,14 +84,20 @@ a,
     background-color 0.3s ease, color 0.3s ease;
 }
 
-button:hover,
-a:hover {
-  transform: translateY(-2px);
+@media (hover: hover) {
+  button:hover,
+  a:hover {
+    transform: translateY(-2px);
+  }
 }
 
 /* Section Spacing */
 .section {
   padding: 5rem 0;
+}
+
+section[id] {
+  scroll-margin-top: 5rem;
 }
 
 @media (max-width: 768px) {

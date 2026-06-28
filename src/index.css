@@ -1,8 +1,3 @@
-@import "tailwindcss";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 body {
   margin: 0;
   font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
@@ -17,35 +12,36 @@ code {
     monospace;
 }
 
-@layer base {
+:root {
+  --background: 43 20% 97%;
+  --foreground: 0 0% 17%;
+  --card: 43 20% 97%;
+  --card-foreground: 0 0% 17%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 17%;
+  --primary: 100 15% 56%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 30 35% 65%;
+  --secondary-foreground: 0 0% 17%;
+  --muted: 43 15% 90%;
+  --muted-foreground: 0 0% 45%;
+  --accent: 100 20% 70%;
+  --accent-foreground: 0 0% 17%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 100 15% 85%;
+  --input: 100 15% 85%;
+  --ring: 100 15% 56%;
+  --chart-1: 100 15% 56%;
+  --chart-2: 30 35% 65%;
+  --chart-3: 197 37% 24%;
+  --chart-4: 43 74% 66%;
+  --chart-5: 27 87% 67%;
+  --radius: 0.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
   :root {
-    --background: 43 20% 97%;
-    --foreground: 0 0% 17%;
-    --card: 43 20% 97%;
-    --card-foreground: 0 0% 17%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 17%;
-    --primary: 100 15% 56%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 30 35% 65%;
-    --secondary-foreground: 0 0% 17%;
-    --muted: 43 15% 90%;
-    --muted-foreground: 0 0% 45%;
-    --accent: 100 20% 70%;
-    --accent-foreground: 0 0% 17%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 100 15% 85%;
-    --input: 100 15% 85%;
-    --ring: 100 15% 56%;
-    --chart-1: 100 15% 56%;
-    --chart-2: 30 35% 65%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
-  }
-  .dark {
     --background: 0 0% 17%;
     --foreground: 0 0% 98%;
     --card: 0 0% 17%;

@@ -5,5 +5,7 @@ export type CreateBookingPayload = {
   service: string;
   date: string;
   time: string;
+  schedule_at: string;
+  status: string;
   notes?: string;
 };

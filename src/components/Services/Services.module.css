@@ -1,0 +1,157 @@
+.section {
+  padding: 5rem 0;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 0;
+  }
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--color-sage-dark);
+  font-family: "Cormorant Garamond", serif;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  max-width: 36rem;
+  margin: 0 auto;
+  color: var(--color-warm-gray);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  border: 1px solid #a8baa0;
+  border-radius: 0.75rem;
+  background-color: var(--color-sand);
+  color: hsl(var(--card-foreground));
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+}
+
+.cardBody {
+  padding: 1.5rem;
+}
+
+.serviceName {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--color-sage-dark);
+  font-family: "Cormorant Garamond", serif;
+}
+
+.description {
+  margin-bottom: 1rem;
+  color: var(--color-charcoal);
+}
+
+.benefits {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.benefitRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.benefitDot {
+  width: 0.375rem;
+  height: 0.375rem;
+  border-radius: 9999px;
+  background-color: #8b9d83;
+  flex-shrink: 0;
+}
+
+.benefitText {
+  color: var(--color-warm-gray);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid #e8e4dc;
+}
+
+.duration {
+  font-size: 0.875rem;
+  color: var(--color-warm-gray);
+}
+
+.price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-sage);
+}
+
+.cta {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.ctaText {
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+  color: var(--color-warm-gray);
+}
+
+.ctaButton {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .ctaButton {
+    width: auto;
+  }
+}
