@@ -255,7 +255,10 @@ const AppointmentDialog = ({ open, onClose }) => {
                 >
                   <SelectValue placeholder="Select a time slot" />
                 </SelectTrigger>
-                <SelectContent className={styles.selectContent}>
+                <SelectContent
+                  className={`${styles.selectContent} ${styles.timeSelectContent}`}
+                  position="popper"
+                >
                   {timeSlots.map((time) => (
                     <SelectItem
                       key={time}

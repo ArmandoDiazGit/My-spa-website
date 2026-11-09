@@ -41,6 +41,7 @@ Cypress.Commands.add("pickFutureDate", (daysAhead = 3) => {
   ].join("-");
 
   cy.get(`[data-day="${iso}"] button`).click();
+  cy.get(`[data-day="${iso}"]`).should("have.attr", "data-selected", "true");
   cy.get('[data-testid="booking-selected-date"]').should("be.visible");
   return cy.wrap(target);
 });

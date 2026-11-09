@@ -43,6 +43,7 @@
 
 .viewport {
   padding: 0.25rem;
+  overscroll-behavior: contain;
 }
 
 .checkIcon {

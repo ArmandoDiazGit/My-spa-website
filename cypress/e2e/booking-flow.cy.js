@@ -53,6 +53,46 @@ describe("Booking flow", () => {
     cy.get('[data-testid="booking-submit"]').should("not.be.disabled");
   });
 
+  it("keeps the preferred time dropdown compact and scrollable", () => {
+    cy.openBookingDialog();
+    cy.get('[data-testid="booking-time-trigger"]').click();
+
+    cy.get('[role="listbox"]')
+      .should("be.visible")
+      .invoke("outerHeight")
+      .as("initialTimeMenuHeight");
+
+    cy.get('[role="listbox"]')
+      .invoke("outerHeight")
+      .should("be.lessThan", 260);
+
+    cy.get('[data-radix-select-viewport]').then(($viewport) => {
+      const viewport = $viewport[0];
+      expect(getComputedStyle(viewport).scrollbarWidth).to.equal("thin");
+      expect(viewport.scrollHeight).to.be.greaterThan(viewport.clientHeight);
+      viewport.scrollTop = viewport.scrollHeight;
+      expect(viewport.scrollTop).to.be.greaterThan(0);
+    });
+
+    cy.get('[role="listbox"]')
+      .invoke("outerHeight")
+      .then((afterScrollHeight) => {
+        cy.get("@initialTimeMenuHeight").then((initialHeight) => {
+          expect(afterScrollHeight).to.be.closeTo(initialHeight, 1);
+          expect(afterScrollHeight).to.be.lessThan(260);
+        });
+      });
+
+    cy.get('[data-testid="time-option-700PM"]')
+      .should("be.visible")
+      .trigger("click");
+
+    cy.get('[data-testid="booking-time-trigger"]').should(
+      "contain.text",
+      "7:00 PM",
+    );
+  });
+
   it("submits a valid booking and shows a success toast", () => {
     const target = new Date();
     target.setDate(target.getDate() + 3);

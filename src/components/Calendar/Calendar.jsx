@@ -10,7 +10,9 @@ function Calendar({ selected, onSelect }) {
   return (
     <DayPicker
       mode="single"
+      required
       selected={selected}
+      onSelect={onSelect}
       className={styles.root}
       classNames={{
         root: `${defaultClassNames.root}`,
@@ -23,16 +25,12 @@ function Calendar({ selected, onSelect }) {
       }}
       disabled={{ before: today }}
       components={{
-        DayButton: (props) => {
-          const { day, modifiers, ...buttonProps } = props;
-          return (
-            <button
-              {...buttonProps}
-              className={`${styles.dayButton}${modifiers.selected ? ` ${styles.selected}` : ""} ${buttonProps.className || ""}`}
-              onClick={() => onSelect?.(day.date)}
-            />
-          );
-        },
+        DayButton: ({ modifiers, ...buttonProps }) => (
+          <button
+            {...buttonProps}
+            className={`${styles.dayButton}${modifiers.selected ? ` ${styles.selected}` : ""} ${buttonProps.className || ""}`}
+          />
+        ),
         Chevron: ({ className, orientation, ...chevronProps }) => {
           switch (orientation) {
             case "left":
