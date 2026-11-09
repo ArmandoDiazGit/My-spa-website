@@ -34,7 +34,11 @@ function Home({ ...rest }) {
             </div>
 
             <div className={styles.buttons}>
-              <Button variant={"primary"} onClick={() => setOpenDialog(true)}>
+              <Button
+                variant={"primary"}
+                onClick={() => setOpenDialog(true)}
+                data-testid="hero-book-button"
+              >
                 <CalendarIcon size={20} />
                 Book an Appointment
               </Button>

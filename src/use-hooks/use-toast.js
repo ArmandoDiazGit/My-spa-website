@@ -141,4 +141,9 @@ function useToast() {
   };
 }
 
-export { useToast, toast };
+function resetToastStore() {
+  memoryState = { toasts: [] };
+  listeners.forEach((listener) => listener(memoryState));
+}
+
+export { useToast, toast, resetToastStore };

@@ -15,13 +15,13 @@ function Toaster() {
     <ToastProvider>
       {toasts.map(function ({ id, title, description, action, ...props }) {
         return (
-          <Toast key={id} {...props}>
+          <Toast key={id} {...props} data-testid="toast">
             <div style={{ display: "grid", gap: "0.25rem", backgroundColor: "#fafaf8" }}>
               {title && (
-                <ToastTitle style={{ color: "#2c2c2c" }}>{title}</ToastTitle>
+                <ToastTitle style={{ color: "#2c2c2c" }} data-testid="toast-title">{title}</ToastTitle>
               )}
               {description && (
-                <ToastDescription style={{ color: "#2c2c2c" }}>
+                <ToastDescription style={{ color: "#2c2c2c" }} data-testid="toast-description">
                   {description}
                 </ToastDescription>
               )}

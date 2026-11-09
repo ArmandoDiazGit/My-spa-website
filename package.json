@@ -7,7 +7,11 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "cypress:open": "cypress open",
+    "test:e2e": "cypress run --e2e",
+    "test:component": "cypress run --component",
+    "test:all": "cypress run --e2e && cypress run --component"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -16,15 +20,17 @@
     "lucide-react": "^0.556.0",
     "radix-ui": "^1.4.3",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0",
     "react-day-picker": "^9.12.0",
+    "react-dom": "^19.2.0",
     "react-select": "^5.10.2"
   },
   "devDependencies": {
+    "@cypress/vite-dev-server": "^7.3.4",
     "@eslint/js": "^9.39.1",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.1",
+    "cypress": "^15.21.1",
     "eslint": "^9.39.1",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",

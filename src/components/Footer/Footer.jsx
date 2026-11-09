@@ -10,7 +10,7 @@ function scrollTo(id) {
 
 function Footer() {
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footer} data-testid="footer">
       <div className={styles.container}>
         <div className={styles.grid}>
           <div>

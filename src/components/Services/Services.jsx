@@ -21,7 +21,7 @@ function Services({ ...rest }) {
 
           <div className={styles.grid}>
             {services.map((service) => (
-              <div key={service.id} className={styles.card}>
+              <div key={service.id} className={styles.card} data-testid="service-card">
                 <div className={styles.cardBody}>
                   <h3 className={styles.serviceName}>{service.name}</h3>
                   <p className={styles.description}>{service.description}</p>
@@ -45,7 +45,11 @@ function Services({ ...rest }) {
           <div className={styles.cta}>
             <p className={styles.ctaText}>Not sure which service is right for you?</p>
             <div className={styles.ctaButton}>
-              <Button onClick={() => setOpenDialog(true)} variant={"contact"}>
+              <Button
+                onClick={() => setOpenDialog(true)}
+                variant={"contact"}
+                data-testid="services-book-button"
+              >
                 Contact Us for Recommendations
               </Button>
             </div>

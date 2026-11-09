@@ -45,12 +45,13 @@ function Navigator() {
       <nav className={styles.nav}>
         <div className={styles.logo} onClick={() => scrollTo("home")}>My SPA Website</div>
 
-        <ul className={styles.desktopLinks}>
+        <ul className={styles.desktopLinks} data-testid="nav-desktop">
           {links.map((link) => (
             <li key={link.id}>
               <a
                 href={`#${link.id}`}
                 className={activeSection === link.id ? styles.active : ""}
+                aria-current={activeSection === link.id ? "page" : undefined}
                 onClick={(e) => { e.preventDefault(); scrollTo(link.id); }}
               >
                 {link.label}
@@ -62,13 +63,14 @@ function Navigator() {
         <button
           className={styles.mobileToggle}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          data-testid="nav-mobile-toggle"
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </nav>
 
       {mobileMenuOpen && (
-        <div className={styles.mobileMenu}>
+        <div className={styles.mobileMenu} data-testid="nav-mobile-menu">
           {links.map((link) => (
             <button
               key={link.id}

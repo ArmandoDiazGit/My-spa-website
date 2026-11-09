@@ -50,7 +50,11 @@ function Contact({ ...rest }) {
             </p>
 
             <div className={styles.buttons}>
-              <Button variant="secondary" onClick={() => setOpenDialog(true)}>
+              <Button
+                variant="secondary"
+                onClick={() => setOpenDialog(true)}
+                data-testid="contact-book-button"
+              >
                 <CalendarIcon size={20} />
                 Schedule Appointment
               </Button>
@@ -64,7 +68,12 @@ function Contact({ ...rest }) {
             <div className={styles.card}>
               <div className={styles.cardBody}>
                 <h3 className={styles.cardTitle}>Send Us a Message</h3>
-                <form ref={formRef} onSubmit={handleSubmit} className={styles.form}>
+                <form
+                  ref={formRef}
+                  onSubmit={handleSubmit}
+                  className={styles.form}
+                  data-testid="contact-form"
+                >
                   <div className={styles.formRow}>
                     <input
                       name="name"
@@ -73,6 +82,7 @@ function Contact({ ...rest }) {
                       type="text"
                       placeholder="Your Name"
                       className={styles.input}
+                      data-testid="contact-name"
                     />
                     <input
                       name="email"
@@ -81,6 +91,7 @@ function Contact({ ...rest }) {
                       type="email"
                       placeholder="Email Address"
                       className={styles.input}
+                      data-testid="contact-email"
                     />
                   </div>
                   <input
@@ -90,6 +101,7 @@ function Contact({ ...rest }) {
                     type="tel"
                     placeholder="Phone Number"
                     className={styles.input}
+                    data-testid="contact-phone"
                   />
                   <input
                     name="time"
@@ -98,6 +110,7 @@ function Contact({ ...rest }) {
                     type="text"
                     placeholder="Preferred Date & Time"
                     className={styles.input}
+                    data-testid="contact-time"
                   />
                   <textarea
                     name="notes"
@@ -106,8 +119,9 @@ function Contact({ ...rest }) {
                     placeholder="Your Message or Special Requests"
                     rows={5}
                     className={styles.textarea}
+                    data-testid="contact-notes"
                   ></textarea>
-                  <Button variant="default" type="submit">
+                  <Button variant="default" type="submit" data-testid="contact-submit">
                     <Send size={20} />
                     Send Message
                   </Button>

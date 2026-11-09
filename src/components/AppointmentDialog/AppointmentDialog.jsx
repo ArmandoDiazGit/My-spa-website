@@ -140,24 +140,29 @@ const AppointmentDialog = ({ open, onClose }) => {
   }
 
   return (
-    <dialog open={open} className={styles.dialog}>
+    <dialog open={open} className={styles.dialog} data-testid="booking-dialog">
       <div>
         <h2 className={styles.headerTitle}>Book Your Appointment</h2>
         <p className={styles.headerSub}>Select your preferred date, time, and service below</p>
       </div>
 
-      <form ref={formRef} onSubmit={handleSubmit} className={styles.form}>
+      <form
+        ref={formRef}
+        onSubmit={handleSubmit}
+        className={styles.form}
+        data-testid="booking-form"
+      >
         <div className={styles.grid}>
           <div className={styles.calendarSection}>
             <h3 className={styles.sectionTitle}>
               <CalendarIcon size={20} />
               Select Date
             </h3>
-            <div className={styles.calendarBox}>
+            <div className={styles.calendarBox} data-testid="booking-date">
               <Calendar selected={date} onSelect={setDate} />
             </div>
             {date && (
-              <p className={styles.selectedDate}>
+              <p className={styles.selectedDate} data-testid="booking-selected-date">
                 Selected: {date.toLocaleDateString("en-US", {
                   weekday: "long", year: "numeric", month: "long", day: "numeric",
                 })}
@@ -176,6 +181,7 @@ const AppointmentDialog = ({ open, onClose }) => {
                 value={formData.name} onChange={handleInputChange}
                 placeholder="Enter your full name"
                 className={styles.fieldInput}
+                data-testid="booking-name"
               />
             </div>
 
@@ -189,6 +195,7 @@ const AppointmentDialog = ({ open, onClose }) => {
                 value={formData.email} onChange={handleInputChange}
                 placeholder="your.email@example.com"
                 className={styles.fieldInput}
+                data-testid="booking-email"
               />
             </div>
 
@@ -202,6 +209,7 @@ const AppointmentDialog = ({ open, onClose }) => {
                 value={formData.phone} onChange={handleInputChange}
                 placeholder="(770) 123-4567"
                 className={styles.fieldInput}
+                data-testid="booking-phone"
               />
             </div>
 
@@ -211,12 +219,20 @@ const AppointmentDialog = ({ open, onClose }) => {
                 value={formData.service}
                 onValueChange={(value) => setFormData((prev) => ({ ...prev, service: value }))}
               >
-                <SelectTrigger className={styles.selectTrigger}>
+                <SelectTrigger
+                  className={styles.selectTrigger}
+                  data-testid="booking-service-trigger"
+                >
                   <SelectValue placeholder="Choose a service" />
                 </SelectTrigger>
                 <SelectContent className={styles.selectContent}>
                   {services.map((service) => (
-                    <SelectItem key={service.id} value={service.name} className={styles.selectItem}>
+                    <SelectItem
+                      key={service.id}
+                      value={service.name}
+                      className={styles.selectItem}
+                      data-testid={`service-option-${service.id}`}
+                    >
                       {service.name} - {service.price}
                     </SelectItem>
                   ))}
@@ -233,12 +249,20 @@ const AppointmentDialog = ({ open, onClose }) => {
                 value={formData.time}
                 onValueChange={(value) => setFormData((prev) => ({ ...prev, time: value }))}
               >
-                <SelectTrigger className={styles.selectTrigger}>
+                <SelectTrigger
+                  className={styles.selectTrigger}
+                  data-testid="booking-time-trigger"
+                >
                   <SelectValue placeholder="Select a time slot" />
                 </SelectTrigger>
                 <SelectContent className={styles.selectContent}>
                   {timeSlots.map((time) => (
-                    <SelectItem key={time} value={time} className={styles.selectItem}>
+                    <SelectItem
+                      key={time}
+                      value={time}
+                      className={styles.selectItem}
+                      data-testid={`time-option-${time.replace(/\W/g, "")}`}
+                    >
                       {time}
                     </SelectItem>
                   ))}
@@ -259,12 +283,13 @@ const AppointmentDialog = ({ open, onClose }) => {
             placeholder="Any special requests, concerns, or areas you'd like us to focus on..."
             rows={4}
             className={styles.notesInput}
+            data-testid="booking-notes"
           />
         </div>
 
         <div className={styles.actions}>
-          <Button type="button" variant="cancel" onClick={cancelForm}>Cancel</Button>
-          <Button type="submit" variant="submit" disabled={!isFormValid()}>Confirm Booking</Button>
+          <Button type="button" variant="cancel" onClick={cancelForm} data-testid="booking-cancel">Cancel</Button>
+          <Button type="submit" variant="submit" disabled={!isFormValid()} data-testid="booking-submit">Confirm Booking</Button>
         </div>
 
         <p className={styles.disclaimer}>* Required fields. We'll contact you shortly to confirm your appointment.</p>

@@ -21,7 +21,7 @@ function Reviews({ ...rest }) {
 
         <div className={styles.grid}>
           {testimonials.map((testimonial) => (
-            <div key={testimonial.id} className={styles.card}>
+            <div key={testimonial.id} className={styles.card} data-testid="review-card">
               <div className={styles.cardBody}>
                 <div className={styles.starsSmall}>
                   {[...Array(testimonial.rating)].map((_, i) => (
