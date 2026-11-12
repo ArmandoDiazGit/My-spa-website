@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run lint
+
+      - run: npm run build
+
+      # Fails the build when a chunk or asset exceeds its budget.
+      - run: npm run size
+
+      - name: Component tests
+        uses: cypress-io/github-action@v6
+        with:
+          install: false
+          component: true
+
+      - name: End-to-end tests
+        uses: cypress-io/github-action@v6
+        with:
+          install: false
+          start: npm run dev -- --port 5173 --strictPort
+          wait-on: http://localhost:5173

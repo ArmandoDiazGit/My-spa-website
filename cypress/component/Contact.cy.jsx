@@ -1,7 +1,7 @@
 import { mount } from "cypress/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import Contact from "../../src/components/Contact/Contact";
-import Toaster from "../../src/ui/Toaster";
+import Contact from "../../src/features/contact/Contact";
+import Toaster from "../../src/shared/ui/Toaster";
 
 function mountContact() {
   const queryClient = new QueryClient({

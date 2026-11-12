@@ -1,7 +1,7 @@
 import { mount } from "cypress/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import AppointmentDialog from "../../src/components/AppointmentDialog/AppointmentDialog";
-import Toaster from "../../src/ui/Toaster";
+import AppointmentDialog from "../../src/shared/booking/AppointmentDialog";
+import Toaster from "../../src/shared/ui/Toaster";
 
 const BOOKING_API = "http://127.0.0.1:8000/api/booking";
 

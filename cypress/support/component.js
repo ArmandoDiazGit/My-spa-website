@@ -1,5 +1,5 @@
 import "./commands";
-import { resetToastStore } from "../../src/use-hooks/use-toast";
+import { resetToastStore } from "../../src/shared/ui/use-toast";
 
 // Component tests mount into a fresh document per test, but stores that live at
 // module scope (like the toast queue) survive between mounts. Reset them so a

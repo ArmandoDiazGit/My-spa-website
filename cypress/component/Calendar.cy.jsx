@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { mount } from "cypress/react";
-import Calendar from "../../src/components/Calendar/Calendar";
+import Calendar from "../../src/shared/booking/Calendar";
 
 function isoDate(date) {
   return [

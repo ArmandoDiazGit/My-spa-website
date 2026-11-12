@@ -6,7 +6,7 @@ import {
   SelectValue,
   SelectContent,
   SelectItem,
-} from "../../src/components/Select/Select";
+} from "../../src/shared/ui/Select";
 
 function SelectHarness() {
   const [value, setValue] = useState("");
